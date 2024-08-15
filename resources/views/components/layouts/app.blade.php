@@ -11,10 +11,14 @@
     </head>
     <body >
         @livewire('partials.header')
-
+        @if (Route::is('club'))
+            <img src="{{ asset('storage/banniere.webp') }}" alt="Image de salut Judo"> 
+        @endif
         <main>
             {{ $slot }}
         </main>
-        @livewire('partials.footer')
+        <footer>
+            @livewire('partials.footer')
+        </footer>
     </body>
 </html>

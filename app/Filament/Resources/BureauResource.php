@@ -21,6 +21,10 @@ class BureauResource extends Resource
 {
     protected static ?string $model = Bureau::class;
 
+    protected static ?string $modelLabel = 'Bureau';
+
+    public static ?string $navigationLabel = 'Bureau';
+
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
 
     public static function form(Form $form): Form

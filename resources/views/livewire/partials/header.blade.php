@@ -2,8 +2,8 @@
     <div class="container px-6 py-4 mx-auto">
         <div class="lg:flex lg:items-center lg:justify-between">
             <div class="flex items-center justify-between">
-                <a href="#" class="mx-auto ">
-                    <img class="w-auto h-6 sm:h-7" src="https://merakiui.com/images/full-logo.svg" alt="">
+                <a href="{{ route('club') }}" class="mx-auto ">
+                    <img class="w-1/6 h-1/6" src="{{ asset('storage/logo.png') }}" alt="">
                 </a>
 
                 <!-- Mobile menu button -->
@@ -23,10 +23,12 @@
             <!-- Mobile Menu open: "block", Menu closed: "hidden" -->
             <div x-cloak :class="[isOpen ? 'translate-x-0 opacity-100 ' : 'opacity-0 -translate-x-full']" class="absolute inset-x-0 z-20 w-full px-6 py-4 transition-all duration-300 ease-in-out bg-white shadow-md lg:bg-transparent lg:dark:bg-transparent lg:shadow-none dark:bg-gray-900 lg:mt-0 lg:p-0 lg:top-0 lg:relative lg:w-auto lg:opacity-100 lg:translate-x-0">
                 <div class="-mx-4 lg:flex lg:items-center">
-                    <a href="#" class="block mx-4 text-gray-700 capitalize dark:text-gray-200 hover:text-blue-600 dark:hover:text-blue-400">Web developers</a>
-                    <a href="#" class="block mx-4 mt-4 text-gray-700 capitalize lg:mt-0 dark:text-gray-200 hover:text-blue-600 dark:hover:text-blue-400">Web Designers</a>
-                    <a href="#" class="block mx-4 mt-4 text-gray-700 capitalize lg:mt-0 dark:text-gray-200 hover:text-blue-600 dark:hover:text-blue-400">UI/UX Designers</a>
-                    <a href="#" class="block mx-4 mt-4 text-gray-700 capitalize lg:mt-0 dark:text-gray-200 hover:text-blue-600 dark:hover:text-blue-400">Contact</a>
+                    <a href="{{ route('club') }}" class="block mx-4 text-gray-700 capitalize dark:text-gray-200 hover:text-blue-600 dark:hover:text-blue-400">Le club</a>
+                    <a href="{{ route('bureau') }}" class="block mx-4 mt-4 text-gray-700 capitalize lg:mt-0 dark:text-gray-200 hover:text-blue-600 dark:hover:text-blue-400">Le bureau</a>
+                    <a href="{{ route('photos') }}" class="block mx-4 mt-4 text-gray-700 capitalize lg:mt-0 dark:text-gray-200 hover:text-blue-600 dark:hover:text-blue-400">Photos</a>
+                    <a href="{{ route('cours') }}" class="block mx-4 mt-4 text-gray-700 capitalize lg:mt-0 dark:text-gray-200 hover:text-blue-600 dark:hover:text-blue-400">Les cours</a>
+                    <a href="{{ route('blog') }}" class="block mx-4 mt-4 text-gray-700 capitalize lg:mt-0 dark:text-gray-200 hover:text-blue-600 dark:hover:text-blue-400">Le blog</a>
+                    <a href="{{ route('contact') }}" class="block mx-4 mt-4 text-gray-700 capitalize lg:mt-0 dark:text-gray-200 hover:text-blue-600 dark:hover:text-blue-400">Contact</a>
                 </div>
             </div>
         </div>

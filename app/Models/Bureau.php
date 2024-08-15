@@ -12,8 +12,8 @@ class Bureau extends Model
     protected $fillable = [
         'nom',
         'prenom',
-        'telephone',
-        'contenu',
+        'poste',
+        'description',
         'image',
     ];
 

@@ -2,12 +2,17 @@
 
 namespace App\Livewire;
 
+use App\Models\Bureau;
 use Livewire\Component;
 
 class BureauPage extends Component
 {
     public function render()
     {
-        return view('livewire.bureau-page');
+        $bureau = Bureau::all();
+
+        return view('livewire.bureau-page', [
+            'bureau' => $bureau
+        ]);
     }
 }
