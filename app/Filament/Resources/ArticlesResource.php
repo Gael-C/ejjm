@@ -46,11 +46,8 @@ class ArticlesResource extends Resource
                         ->unique(Articles::class, 'slug', ignoreRecord:true),
                     TextArea::make('contenu')
                         ->required(),
-                    FileUpload::make('images')
-                        ->multiple()
-                        // ->directory('articles')
-                        ->maxFiles(5)
-                        ->reorderable()
+                    FileUpload::make('image')
+                        ->directory('articles')
 
 
             ]);
