@@ -10,7 +10,7 @@ class BlogPage extends Component
 {
     public function render()
     {
-        $articles = Articles::query()->orderBy('created_at','desc')->get();
+        $articles = Articles::query()->orderBy('created_at','desc')->paginate(5);
 
         $latest = $articles->first();
         

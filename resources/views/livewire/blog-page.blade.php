@@ -27,6 +27,7 @@
                 <hr class="my-6 border-gray-200 dark:border-gray-700">
             </div>
             @endforeach
+            {{ $articles->render() }}
         </div>
     </div>
 </div>
