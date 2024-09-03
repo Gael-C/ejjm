@@ -6,7 +6,10 @@
             <h1 class="mt-2 text-2xl font-semibold text-gray-800 md:text-3xl dark:text-white">Contactez nous</h1>
 
             <p class="mt-3 text-gray-500 dark:text-gray-400">Nous vous répondrons aussi vite que possible.</p>
+
+            
         </div>
+        
 
         <div class="grid grid-cols-1 gap-12 mt-10 lg:grid-cols-2">
             <div class="grid grid-cols-1 gap-12 md:grid-cols-2">
@@ -53,27 +56,65 @@
             </div>
 
             <div class="p-4 py-6 rounded-lg bg-gray-50 dark:bg-gray-800 md:p-8">
+
+                @if (session('mail envoyé'))
+                <div class="flex w-full max-w-sm overflow-hidden bg-white rounded-lg shadow-md dark:bg-gray-800">
+                    <div class="flex items-center justify-center w-12 bg-emerald-500">
+                        <svg class="w-6 h-6 text-white fill-current" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M20 3.33331C10.8 3.33331 3.33337 10.8 3.33337 20C3.33337 29.2 10.8 36.6666 20 36.6666C29.2 36.6666 36.6667 29.2 36.6667 20C36.6667 10.8 29.2 3.33331 20 3.33331ZM16.6667 28.3333L8.33337 20L10.6834 17.65L16.6667 23.6166L29.3167 10.9666L31.6667 13.3333L16.6667 28.3333Z" />
+                        </svg>
+                    </div>
+                
+                    <div class="px-4 py-2 -mx-3">
+                        <div class="mx-3">
+                            <span class="font-semibold text-emerald-500 dark:text-emerald-400">{{ session('mail envoyé') }}</span>
+                        </div>
+                    </div>
+                </div>
+                @endif
+                
                 <form wire:submit="submitForm">
+                    
                     <div class="-mx-2 md:items-center md:flex">
                         <div class="flex-1 px-2">
                             <label for="nom" class="block mb-2 text-sm text-gray-600 dark:text-gray-200">Nom</label>
                             <input type="text" wire:model="nom" placeholder="Nom " class="block w-full px-5 py-2.5 mt-2 text-gray-700 placeholder-gray-400 bg-white border border-gray-200 rounded-lg dark:placeholder-gray-600 dark:bg-gray-900 dark:text-gray-300 dark:border-gray-700 focus:border-blue-400 dark:focus:border-blue-400 focus:ring-blue-400 focus:outline-none focus:ring focus:ring-opacity-40" />
+                            @error('nom') 
+                                <span class="text-red-500">
+                                    {{ $message }}
+                                </span>
+                            @enderror
                         </div>
 
                         <div class="flex-1 px-2 mt-4 md:mt-0">
                             <label for="prenom" class="block mb-2 text-sm text-gray-600 dark:text-gray-200">Prénom</label>
                             <input type="text" wire:model="prenom" placeholder="Prénom" class="block w-full px-5 py-2.5 mt-2 text-gray-700 placeholder-gray-400 bg-white border border-gray-200 rounded-lg dark:placeholder-gray-600 dark:bg-gray-900 dark:text-gray-300 dark:border-gray-700 focus:border-blue-400 dark:focus:border-blue-400 focus:ring-blue-400 focus:outline-none focus:ring focus:ring-opacity-40" />
+                            @error('prenom') 
+                                <span class="text-red-500">
+                                    {{ $message }}
+                                </span>
+                            @enderror
                         </div>
                     </div>
 
                     <div class="mt-4">
                         <label for="email" class="block mb-2 text-sm text-gray-600 dark:text-gray-200">Email</label>
                         <input type="email" wire:model="email" placeholder="email@example.com" class="block w-full px-5 py-2.5 mt-2 text-gray-700 placeholder-gray-400 bg-white border border-gray-200 rounded-lg dark:placeholder-gray-600 dark:bg-gray-900 dark:text-gray-300 dark:border-gray-700 focus:border-blue-400 dark:focus:border-blue-400 focus:ring-blue-400 focus:outline-none focus:ring focus:ring-opacity-40" />
+                        @error('email') 
+                                <span class="text-red-500">
+                                    {{ $message }}
+                                </span>
+                            @enderror
                     </div>
 
                     <div class="w-full mt-4">
                         <label for="message" class="block mb-2 text-sm text-gray-600 dark:text-gray-200">Message</label>
                         <textarea wire:model="message" class="block w-full h-32 px-5 py-2.5 mt-2 text-gray-700 placeholder-gray-400 bg-white border border-gray-200 rounded-lg md:h-56 dark:placeholder-gray-600 dark:bg-gray-900 dark:text-gray-300 dark:border-gray-700 focus:border-blue-400 dark:focus:border-blue-400 focus:ring-blue-400 focus:outline-none focus:ring focus:ring-opacity-40" placeholder="Message"></textarea>
+                        @error('message') 
+                                <span class="text-red-500">
+                                    {{ $message }}
+                                </span>
+                            @enderror
                     </div>
 
                     <button class="w-full px-6 py-3 mt-4 text-sm font-medium tracking-wide text-white capitalize transition-colors duration-300 transform bg-blue-500 rounded-lg hover:bg-blue-400 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-50">
