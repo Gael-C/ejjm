@@ -1,5 +1,6 @@
 <?php
 
+use App\Livewire\ArticlePage;
 use App\Livewire\BlogPage;
 use App\Livewire\BureauPage;
 use App\Livewire\ClubPage;
@@ -23,12 +24,13 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('blog/{slug}',ArticlePage::class)->name('article');
 Route::get('/blog', BlogPage::class)->name('blog');
 Route::get('/bureau', BureauPage::class)->name('bureau');
-Route::get('/contact', ContactPage::class)->name('contact');
 Route::get('/club', ClubPage::class)->name('club');
-Route::get('/photos', PhotosPage::class)->name('photos');
+Route::get('/contact', ContactPage::class)->name('contact');
 Route::get('/cours', CoursPage::class)->name('cours');
+Route::get('/photos', PhotosPage::class)->name('photos');
 
 
 
