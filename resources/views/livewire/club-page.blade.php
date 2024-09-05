@@ -8,7 +8,13 @@
     </div>
 
     <div class="mx-auto text-center">
-        <h2 class="font-bold text-gray-900 text-xl">Une école familiale</h2>
+
+        {{-- <h2 class="font-bold text-gray-900 text-xl">Une école familiale</h2>
+        <p class="mt-5">
+            À ce jour le club compte {{$judokas}} judokas.
+        </p> --}}
+
+        <h2 class="font-bold text-gray-900 text-xl mt-10">Une école familiale</h2>
         <p class="mt-5">
             Née de la mobilisation des parents de jeunes judokas marsellois, L'E.J.J.M. est avant tout
             une école familiale faite par des parents pour les enfants

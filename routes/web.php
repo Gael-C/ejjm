@@ -5,7 +5,7 @@ use App\Livewire\BlogPage;
 use App\Livewire\BureauPage;
 use App\Livewire\ClubPage;
 use App\Livewire\ContactPage;
-use App\Livewire\CoursPage;
+use App\Livewire\PartenairesPage;
 use App\Livewire\PhotosPage;
 use Illuminate\Support\Facades\Route;
 
@@ -29,7 +29,7 @@ Route::get('/blog', BlogPage::class)->name('blog');
 Route::get('/bureau', BureauPage::class)->name('bureau');
 Route::get('/club', ClubPage::class)->name('club');
 Route::get('/contact', ContactPage::class)->name('contact');
-Route::get('/cours', CoursPage::class)->name('cours');
+Route::get('/partenaires', PartenairesPage::class)->name('partenaires');
 Route::get('/photos', PhotosPage::class)->name('photos');
 
 
