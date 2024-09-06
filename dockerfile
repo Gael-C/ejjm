@@ -43,15 +43,6 @@ RUN apt-get -y autoremove \
 && apt-get clean \
 && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
-# Générer la clé de l'application
-RUN php artisan key:generate
-
-# Effectuer les optimisations Laravel
-RUN php artisan config:cache
-RUN php artisan route:cache
-RUN php artisan view:cache
-RUN php artisan migrate
-
 
 USER ${WWW_USER}
 
