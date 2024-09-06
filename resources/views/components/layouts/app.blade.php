@@ -14,10 +14,10 @@
         @if (Route::is('club'))
             <img src="{{ asset('storage/banniere.webp') }}" alt="Image de salut Judo"> 
         @endif
-        <main>
+        <main class="dark:bg-gray-900">
             {{ $slot }}
         </main>
-        <footer>
+        <footer class="dark:bg-gray-900">
             @livewire('partials.footer')
         </footer>
     </body>
