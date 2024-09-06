@@ -1,37 +1,47 @@
-FROM php:8.2-fpm
-
-# Installer les dépendances
+FROM php:8.3-apache
+ 
+ARG WWW_USER=1000
+ 
+# Set working directory
+WORKDIR /app
+ 
+# Install system dependencies
 RUN apt-get update && apt-get install -y \
-    nginx \
+    git \
+    curl \
     libpng-dev \
+    libjpeg-dev \
+    libfreetype6-dev \
     libonig-dev \
     libxml2-dev \
-    libicu-dev \
+    libpq-dev \
+    libzip-dev \
+    libcurl4-openssl-dev \
     zip \
     unzip \
-    git \
-    curl
-
-# Nettoyer le cache
-RUN apt-get clean && rm -rf /var/lib/apt/lists/*
-
-# Installer les extensions PHP
-RUN docker-php-ext-install pdo_mysql mbstring exif pcntl bcmath gd intl
-
-# Obtenir la dernière version de Composer
-COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
-
-# Définir le répertoire de travail
-WORKDIR /var/www/html
-
-# Copier le code de l'application
-COPY . .
-
-# Installer les dépendances de l'application
-RUN composer install --no-dev --optimize-autoloader
-
-# Copier la configuration Nginx
-COPY nginx.conf /etc/nginx/sites-available/default
+    default-mysql-client
+ 
+# Install PHP extensions
+RUN docker-php-ext-configure gd --with-freetype --with-jpeg \
+    && docker-php-ext-install pdo pdo_mysql mbstring exif pcntl bcmath gd zip curl intl
+ 
+# Copy vhost config
+COPY vhost.conf /etc/apache2/sites-available/000-default.conf
+ 
+# Enable Apache mods
+RUN a2enmod rewrite
+ 
+# Get latest Composer
+RUN php -r "readfile('http://getcomposer.org/installer');" | php -- --install-dir=/usr/bin/ --filename=composer
+ 
+# Create user
+RUN groupadd --force -g $WWW_USER webapp
+RUN useradd -ms /bin/bash --no-user-group -g $WWW_USER -u $WWW_USER webapp
+ 
+# Clean cache
+RUN apt-get -y autoremove \
+&& apt-get clean \
+&& rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 # Générer la clé de l'application
 RUN php artisan key:generate
@@ -40,12 +50,8 @@ RUN php artisan key:generate
 RUN php artisan config:cache
 RUN php artisan route:cache
 RUN php artisan view:cache
+RUN php artisan migrate
 
-# Définir les permissions correctes
-RUN chown -R www-data:www-data /var/www/html/storage /var/www/html/bootstrap/cache
 
-# Exposer le port 80
-EXPOSE 80
+USER ${WWW_USER}
 
-# Démarrer Nginx et PHP-FPM
-CMD sh -c "service php8.2-fpm start && nginx -g 'daemon off;'"
