@@ -14,6 +14,8 @@ class ContactPage extends Component
     public $email = '';
     public $message = '';
 
+    public $alerteVisible = true;
+
     public function render()
     {
         return view('livewire.contact-page');
@@ -36,13 +38,18 @@ class ContactPage extends Component
             'message' => $this->message,
         ];
 
-        $this->reset(["nom", "prenom", "email", "message"]);
         
         // Send email
         Mail::to('gaelcoupe17@gmail.com')->send(new Contact($contact));
 
-        session()->flash('mail envoyé', 'Votre message a bien été envoyé !');
+        return redirect()->route('contact')->with('mail envoyé', 'Votre message a bien été envoyé !');
 
-        $this->reset();
+        // session()->flash('mail envoyé', 'Votre message a bien été envoyé !');
+
+    }
+
+    public function close()
+    {
+        $this->alerteVisible = false;
     }
 }

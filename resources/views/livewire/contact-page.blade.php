@@ -15,40 +15,20 @@
             <div class="grid grid-cols-1 gap-12 md:grid-cols-2">
                 <div>
                     <a target="_blank" href="https://www.facebook.com/people/%C3%89cole-de-Judo-Jujitsu-Marsilly/61562750729591/">
-                        <span class="inline-block p-3 text-blue-500 rounded-full bg-blue-100/80 dark:bg-gray-800">
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M2.00195 12.002C2.00312 16.9214 5.58036 21.1101 10.439 21.881V14.892H7.90195V12.002H10.442V9.80204C10.3284 8.75958 10.6845 7.72064 11.4136 6.96698C12.1427 6.21332 13.1693 5.82306 14.215 5.90204C14.9655 5.91417 15.7141 5.98101 16.455 6.10205V8.56104H15.191C14.7558 8.50405 14.3183 8.64777 14.0017 8.95171C13.6851 9.25566 13.5237 9.68693 13.563 10.124V12.002H16.334L15.891 14.893H13.563V21.881C18.8174 21.0506 22.502 16.2518 21.9475 10.9611C21.3929 5.67041 16.7932 1.73997 11.4808 2.01722C6.16831 2.29447 2.0028 6.68235 2.00195 12.002Z">
-                                    />
-                            </svg>
-                        </span>
+                        <h2 class="mt-4 text-base font-medium hover:text-blue-500 text-gray-800 dark:text-white">Facebook</h2>
                     </a>
-
-                    <h2 class="mt-4 text-base font-medium text-gray-800 dark:text-white">Facebook</h2>
                     <p class="mt-2 text-sm text-gray-500 dark:text-gray-400">Retrouvez toute l'actualité du club sur Facebook</p>
                 </div>
 
                 <div>
                     <a target="_blank" href="https://www.instagram.com/ecolejudomarsilly/">
-                        <span class="inline-block p-3 text-blue-500 rounded-full bg-blue-100/80 dark:bg-gray-800">
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M2.00195 12.002C2.00312 16.9214 5.58036 21.1101 10.439 21.881V14.892H7.90195V12.002H10.442V9.80204C10.3284 8.75958 10.6845 7.72064 11.4136 6.96698C12.1427 6.21332 13.1693 5.82306 14.215 5.90204C14.9655 5.91417 15.7141 5.98101 16.455 6.10205V8.56104H15.191C14.7558 8.50405 14.3183 8.64777 14.0017 8.95171C13.6851 9.25566 13.5237 9.68693 13.563 10.124V12.002H16.334L15.891 14.893H13.563V21.881C18.8174 21.0506 22.502 16.2518 21.9475 10.9611C21.3929 5.67041 16.7932 1.73997 11.4808 2.01722C6.16831 2.29447 2.0028 6.68235 2.00195 12.002Z">
-                                    />
-                            </svg>
-                        </span>
+                        <h2 class="mt-4 text-base font-medium hover:text-blue-500 text-gray-800 dark:text-white">Instagram</h2>
                     </a>
                     
-                    <h2 class="mt-4 text-base font-medium text-gray-800 dark:text-white">Instagram</h2>
                     <p class="mt-2 text-sm text-gray-500 dark:text-gray-400">Vous pouvez également suivre l'actualité photo sur Instagram</p>
                 </div>
 
                 <div>
-                    <span class="inline-block p-3 text-blue-500 rounded-full bg-blue-100/80 dark:bg-gray-800">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z" />
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z" />
-                        </svg>
-                    </span>
-                    
                     <h2 class="mt-4 text-base font-medium text-gray-800 dark:text-white">Dojo</h2>
                     <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2760.3242555371507!2d-1.1320202236672192!3d46.22389608243109!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4806ad6584c96a1d%3A0xf75b0805e5c0f12!2sEcole%20de%20Judo%20Jujistu%20de%20Marsilly!5e0!3m2!1sfr!2sfr!4v1723455993988!5m2!1sfr!2sfr" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                 </div>
@@ -58,19 +38,28 @@
             <div class="p-4 py-6 rounded-lg bg-gray-50 dark:bg-gray-800 md:p-8">
 
                 @if (session('mail envoyé'))
-                <div class="flex w-full max-w-sm overflow-hidden bg-white rounded-lg shadow-md dark:bg-gray-800">
-                    <div class="flex items-center justify-center w-12 bg-emerald-500">
-                        <svg class="w-6 h-6 text-white fill-current" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M20 3.33331C10.8 3.33331 3.33337 10.8 3.33337 20C3.33337 29.2 10.8 36.6666 20 36.6666C29.2 36.6666 36.6667 29.2 36.6667 20C36.6667 10.8 29.2 3.33331 20 3.33331ZM16.6667 28.3333L8.33337 20L10.6834 17.65L16.6667 23.6166L29.3167 10.9666L31.6667 13.3333L16.6667 28.3333Z" />
+                <div id="alert-3" class="flex items-center p-4 mb-4 text-green-800 rounded-lg bg-green-50 dark:bg-gray-800 dark:text-green-400" role="alert">
+                    <svg class="flex-shrink-0 w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                        <path d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z"/>
+                    </svg>
+                    <span class="sr-only">Info</span>
+                    <div class="ms-3 text-sm font-medium">
+                        {{ session('mail envoyé') }}
+                    </div>
+                    <button type="button"  wire:click="close" class="ms-auto -mx-1.5 -my-1.5 bg-green-50 text-green-500 rounded-lg focus:ring-2 focus:ring-green-400 p-1.5 hover:bg-green-200 inline-flex items-center justify-center h-8 w-8 dark:bg-gray-800 dark:text-green-400 dark:hover:bg-gray-700" data-dismiss-target="#alert-3" aria-label="Close">
+                        <span class="sr-only">Close</span>
+                        <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"/>
                         </svg>
-                    </div>
-                
-                    <div class="px-4 py-2 -mx-3">
-                        <div class="mx-3">
-                            <span class="font-semibold text-emerald-500 dark:text-emerald-400">{{ session('mail envoyé') }}</span>
-                        </div>
-                    </div>
+                    </button>
                 </div>
+
+                <script>
+                    function closeAlert() {
+                        var alert = document.getElementById('alert-3');
+                        alert.style.display = 'none'; // Cache l'alerte
+                    }
+                </script>
                 @endif
                 
                 <form wire:submit="submitForm">
