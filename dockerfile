@@ -4,6 +4,9 @@ ARG WWW_USER=1000
  
 # Set working directory
 WORKDIR /app
+
+# Copier le code de l'application
+COPY . .
  
 # Install system dependencies
 RUN apt-get update && apt-get install -y \
