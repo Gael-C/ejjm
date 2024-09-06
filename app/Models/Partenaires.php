@@ -9,5 +9,5 @@ class Partenaires extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['nom', 'image'];
+    protected $fillable = ['nom', 'image', 'don'];
 }

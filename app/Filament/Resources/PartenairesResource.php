@@ -2,16 +2,20 @@
 
 namespace App\Filament\Resources;
 
-use App\Filament\Resources\PartenairesResource\Pages;
-use App\Filament\Resources\PartenairesResource\RelationManagers;
-use App\Models\Partenaires;
 use Filament\Forms;
-use Filament\Forms\Form;
-use Filament\Resources\Resource;
 use Filament\Tables;
+use Filament\Forms\Form;
 use Filament\Tables\Table;
+use App\Models\Partenaires;
+use Faker\Provider\ar_EG\Text;
+use Filament\Resources\Resource;
+use Filament\Tables\Columns\TextColumn;
+use Filament\Forms\Components\TextInput;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
+use App\Filament\Resources\PartenairesResource\Pages;
+use App\Filament\Resources\PartenairesResource\RelationManagers;
+use Filament\Forms\Components\FileUpload;
 
 class PartenairesResource extends Resource
 {
@@ -23,7 +27,14 @@ class PartenairesResource extends Resource
     {
         return $form
             ->schema([
-                //
+                TextInput::make('nom')
+                    ->required(),
+                TextInput::make('don')
+                    ->integer()
+                    ->required(),
+                FileUpload::make('image')
+                    ->image()
+                    ->directory('partenaires'),
             ]);
     }
 
@@ -31,7 +42,8 @@ class PartenairesResource extends Resource
     {
         return $table
             ->columns([
-                //
+                TextColumn::make('nom'),
+                TextColumn::make('don'),
             ])
             ->filters([
                 //
