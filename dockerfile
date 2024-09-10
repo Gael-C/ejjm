@@ -1,56 +1,23 @@
-FROM php:8.3-apache
- 
-ARG WWW_USER=1000
- 
-# Install system dependencies
-RUN apt-get update && apt-get install -y \
-    git \
-    curl \
-    libpng-dev \
-    libjpeg-dev \
-    libfreetype6-dev \
-    libonig-dev \
-    libxml2-dev \
-    libpq-dev \
-    libzip-dev \
-    libcurl4-openssl-dev \
-    zip \
-    unzip \
-    default-mysql-client
+FROM richarvey/nginx-php-fpm:latest
 
-# Install PHP extensions
-RUN docker-php-ext-configure gd --with-freetype --with-jpeg \
-    && docker-php-ext-install pdo pdo_mysql mbstring exif pcntl bcmath gd zip curl intl
- 
-# Copy vhost config
-COPY vhost.conf /etc/apache2/sites-available/000-default.conf
- 
-# Enable Apache mods
-RUN a2enmod rewrite
- 
-# Installer Composer globalement
-COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
+COPY . .
 
-# Installer Node.js et npm
-RUN curl -sL https://deb.nodesource.com/setup_18.x | bash - \
-    && apt-get install -y nodejs=18.17.0-1nodesource1 \
-    && npm install -g npm@10.5.0
+# Image config
+ENV SKIP_COMPOSER 1
+ENV WEBROOT /var/www/html/public
+ENV PHP_ERRORS_STDERR 1
+ENV RUN_SCRIPTS 1
+ENV REAL_IP_HEADER 1
 
-# Installer les dépendances de l'application
-WORKDIR /var/www/html
-COPY . /var/www/html
-RUN composer install --no-dev --optimize-autoloader
+# Laravel config
+ENV APP_ENV production
+ENV APP_DEBUG false
+ENV LOG_CHANNEL stderr
 
-RUN npm install
-RUN npm run build
+# Allow composer to run as root
+ENV COMPOSER_ALLOW_SUPERUSER 1
 
-#RUN php artisan migrate
- 
-# Clean cache
-RUN apt-get -y autoremove \
-&& apt-get clean \
-&& rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
+# Install node and npm for Vite
+RUN apk add --update nodejs npm
 
-
-USER ${WWW_USER}
-
+CMD ["/start.sh"]
