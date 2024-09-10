@@ -44,7 +44,7 @@ RUN composer install --no-dev --optimize-autoloader
 RUN npm install
 RUN npm run build
 
-RUN php artisan migrate
+#RUN php artisan migrate
  
 # Clean cache
 RUN apt-get -y autoremove \
