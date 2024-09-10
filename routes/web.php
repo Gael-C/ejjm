@@ -20,14 +20,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
 
 Route::get('blog/{slug}',ArticlePage::class)->name('article');
 Route::get('/blog', BlogPage::class)->name('blog');
 Route::get('/bureau', BureauPage::class)->name('bureau');
-Route::get('/club', ClubPage::class)->name('club');
+Route::get('/', ClubPage::class)->name('club');
 Route::get('/contact', ContactPage::class)->name('contact');
 Route::get('/partenaires', PartenairesPage::class)->name('partenaires');
 Route::get('/photos', PhotosPage::class)->name('photos');

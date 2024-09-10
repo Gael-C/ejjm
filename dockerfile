@@ -22,7 +22,9 @@ RUN apt-get update && apt-get install -y \
     libcurl4-openssl-dev \
     zip \
     unzip \
-    default-mysql-client
+    default-mysql-client \
+    nodejs \
+    nodejs-npm
  
 # Install PHP extensions
 RUN docker-php-ext-configure gd --with-freetype --with-jpeg \
@@ -34,8 +36,17 @@ COPY vhost.conf /etc/apache2/sites-available/000-default.conf
 # Enable Apache mods
 RUN a2enmod rewrite
  
-# Get latest Composer
-RUN php -r "readfile('http://getcomposer.org/installer');" | php -- --install-dir=/usr/bin/ --filename=composer
+# Install composer
+ENV COMPOSER_HOME /composer
+ENV PATH ./vendor/bin:/composer/vendor/bin:$PATH
+ENV COMPOSER_ALLOW_SUPERUSER 1
+RUN curl -s https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin/ --filename=composer
+
+RUN composer install
+RUN npm install
+
+RUN php artisan migrate
+
  
 # Create user
 RUN groupadd --force -g $WWW_USER webapp
