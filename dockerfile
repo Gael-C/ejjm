@@ -24,7 +24,6 @@ RUN apt-get update && apt-get install -y \
     unzip \
     default-mysql-client \
     nodejs \
-    nodejs-npm
  
 # Install PHP extensions
 RUN docker-php-ext-configure gd --with-freetype --with-jpeg \
