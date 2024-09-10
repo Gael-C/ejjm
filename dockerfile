@@ -32,9 +32,9 @@ RUN a2enmod rewrite
 COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 
 # Installer Node.js et npm
-RUN curl -sL https://deb.nodesource.com/setup_19.x | bash - \
-    && apt-get install -y nodejs \
-    && npm install -g npm
+RUN curl -sL https://deb.nodesource.com/setup_18.x | bash - \
+    && apt-get install -y nodejs=18.17.0-1nodesource1 \
+    && npm install -g npm@10.5.0
 
 # Installer les dépendances de l'application
 WORKDIR /var/www/html
