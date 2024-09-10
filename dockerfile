@@ -16,7 +16,8 @@ RUN apt-get update && apt-get install -y \
     libcurl4-openssl-dev \
     zip \
     unzip \
-    default-mysql-client \ 
+    default-mysql-client
+
 # Install PHP extensions
 RUN docker-php-ext-configure gd --with-freetype --with-jpeg \
     && docker-php-ext-install pdo pdo_mysql mbstring exif pcntl bcmath gd zip curl intl
