@@ -2,12 +2,6 @@ FROM php:8.3-apache
  
 ARG WWW_USER=1000
  
-# Set working directory
-WORKDIR /app
-
-# Copier le code de l'application
-COPY . .
- 
 # Install system dependencies
 RUN apt-get update && apt-get install -y \
     git \
@@ -22,9 +16,7 @@ RUN apt-get update && apt-get install -y \
     libcurl4-openssl-dev \
     zip \
     unzip \
-    default-mysql-client \
-    nodejs \
- 
+    default-mysql-client \ 
 # Install PHP extensions
 RUN docker-php-ext-configure gd --with-freetype --with-jpeg \
     && docker-php-ext-install pdo pdo_mysql mbstring exif pcntl bcmath gd zip curl intl
@@ -35,21 +27,23 @@ COPY vhost.conf /etc/apache2/sites-available/000-default.conf
 # Enable Apache mods
 RUN a2enmod rewrite
  
-# Install composer
-ENV COMPOSER_HOME /composer
-ENV PATH ./vendor/bin:/composer/vendor/bin:$PATH
-ENV COMPOSER_ALLOW_SUPERUSER 1
-RUN curl -s https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin/ --filename=composer
+# Installer Composer globalement
+COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 
-RUN composer install
+# Installer Node.js et npm
+RUN curl -sL https://deb.nodesource.com/setup_16.x | bash - \
+    && apt-get install -y nodejs \
+    && npm install -g npm
+
+# Installer les dépendances de l'application
+WORKDIR /var/www/html
+COPY . /var/www/html
+RUN composer install --no-dev --optimize-autoloader
+
 RUN npm install
+RUN npm run build
 
 RUN php artisan migrate
-
- 
-# Create user
-RUN groupadd --force -g $WWW_USER webapp
-RUN useradd -ms /bin/bash --no-user-group -g $WWW_USER -u $WWW_USER webapp
  
 # Clean cache
 RUN apt-get -y autoremove \
