@@ -7,7 +7,8 @@ services:
     # PHP
     ####################################################################################################
     php:
-        build: .docker/php/
+        context: ${PWD}/.docker/php
+        dockerfile: Dockerfile
         ports:
             - 5173:5173
         volumes:
