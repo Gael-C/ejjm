@@ -19,6 +19,7 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+// bla bla bla
 
 
 Route::get('blog/{slug}',ArticlePage::class)->name('article');
