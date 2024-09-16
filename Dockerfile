@@ -1,9 +1,9 @@
 FROM php:8.2-fpm
 
 # Copier les fichiers de configuration
-COPY php.ini /usr/local/etc/php/
-COPY docker.conf /usr/local/etc/php-fpm.d/docker.conf
-COPY .bashrc /root/
+COPY .docker/php/php.ini /usr/local/etc/php/
+COPY .docker/php/docker.conf /usr/local/etc/php-fpm.d/docker.conf
+COPY .docker/php/.bashrc /root/
 
 # Installer les dépendances et extensions PHP
 RUN apt-get update && apt-get install -y \
