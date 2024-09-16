@@ -48,3 +48,4 @@ WORKDIR /var/www
 
 # Exposer le port pour Vite
 EXPOSE 5173
+
