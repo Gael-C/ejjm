@@ -26,8 +26,8 @@ Route::get('/blog', BlogPage::class)->name('blog');
 Route::get('/bureau', BureauPage::class)->name('bureau');
 Route::get('/', ClubPage::class)->name('club');
 Route::get('/contact', ContactPage::class)->name('contact');
-Route::get('/partenaires', PartenairesPage::class)->name('partenaires');
-Route::get('/photos', PhotosPage::class)->name('photos');
+// Route::get('/partenaires', PartenairesPage::class)->name('partenaires');
+// Route::get('/photos', PhotosPage::class)->name('photos');
 
 
 

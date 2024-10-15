@@ -26,7 +26,7 @@
                     <a href="{{ route('club') }}" class="block mx-4 text-gray-700 capitalize dark:text-white hover:text-blue-600 dark:hover:text-blue-400">Le club</a>
                     <a href="{{ route('bureau') }}" class="block mx-4 mt-4 text-gray-700 capitalize lg:mt-0 dark:text-white hover:text-blue-600 dark:hover:text-blue-400">Le bureau</a>
                     {{-- <a href="{{ route('photos') }}" class="block mx-4 mt-4 text-gray-700 capitalize lg:mt-0 dark:text-white hover:text-blue-600 dark:hover:text-blue-400">Photos</a> --}}
-                    <a href="{{ route('partenaires') }}" class="block mx-4 mt-4 text-gray-700 capitalize lg:mt-0 dark:text-white hover:text-blue-600 dark:hover:text-blue-400">Les Partenaires</a>
+                    {{-- <a href="{{ route('partenaires') }}" class="block mx-4 mt-4 text-gray-700 capitalize lg:mt-0 dark:text-white hover:text-blue-600 dark:hover:text-blue-400">Les Partenaires</a> --}}
                     <a href="{{ route('blog') }}" class="block mx-4 mt-4 text-gray-700 capitalize lg:mt-0 dark:text-white hover:text-blue-600 dark:hover:text-blue-400">Le blog</a>
                     <a href="{{ route('contact') }}" class="block mx-4 mt-4 text-gray-700 capitalize lg:mt-0 dark:text-white hover:text-blue-600 dark:hover:text-blue-400">Contact</a>
                 </div>
