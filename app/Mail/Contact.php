@@ -31,7 +31,7 @@ class Contact extends Mailable
     public function envelope(): Envelope
     {
         return new Envelope(
-            from: new Address('Admin@ejjm.fr', 'Admin'),
+            from: new Address(env('MAIL_FROM_ADDRESS'), 'Admin'),
             subject: 'Contact',
         );
     }

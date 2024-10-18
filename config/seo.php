@@ -91,7 +91,7 @@ return [
          * where we don't have a description set via an associated ->seo model or via
          * the ->getDynamicSEOData() method.
          */
-        'fallback' => null,
+        'fallback' => "EJJM Marsilly : école de judo familiale alliant expertise et accessibilité. Cours enfants et adultes, self-défense, enseignants diplômés de haut niveau. Tarifs adaptés, prêt de kimonos.",
     ],
 
     'image' => [

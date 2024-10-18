@@ -40,11 +40,9 @@ class ContactPage extends Component
 
         
         // Send email
-        Mail::to('gaelcoupe17@gmail.com')->send(new Contact($contact));
+        Mail::to(env('MAIL_TO_ADDRESS'))->send(new Contact($contact));
 
         return redirect()->route('contact')->with('mail envoyé', 'Votre message a bien été envoyé !');
-
-        // session()->flash('mail envoyé', 'Votre message a bien été envoyé !');
 
     }
 
