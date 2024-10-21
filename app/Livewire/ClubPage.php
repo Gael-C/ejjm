@@ -9,10 +9,6 @@ class ClubPage extends Component
 {
     public function render()
     {
-
-        $judokas = Judokas::all()->count();
-        return view('livewire.club-page', [
-            'judokas' => $judokas
-        ]);
+        return view('livewire.club-page');
     }
 }

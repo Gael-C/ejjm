@@ -30,7 +30,7 @@
 
                 <div>
                     <h2 class="mt-4 text-base font-medium text-gray-800 dark:text-white">Dojo</h2>
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2760.3242555371507!2d-1.1320202236672192!3d46.22389608243109!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4806ad6584c96a1d%3A0xf75b0805e5c0f12!2sEcole%20de%20Judo%20Jujistu%20de%20Marsilly!5e0!3m2!1sfr!2sfr!4v1723455993988!5m2!1sfr!2sfr" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    <iframe title="Carte montrant l'emplacement du club de judo" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2760.3242555371507!2d-1.1320202236672192!3d46.22389608243109!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4806ad6584c96a1d%3A0xf75b0805e5c0f12!2sEcole%20de%20Judo%20Jujistu%20de%20Marsilly!5e0!3m2!1sfr!2sfr!4v1723455993988!5m2!1sfr!2sfr" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                 </div>
 
             </div>
