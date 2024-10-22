@@ -12,8 +12,8 @@
     <body >
         @livewire('partials.header')
         @if (Route::is('club'))
-        <div class="flex justify-center">
-            <img class="w-[48rem] h-[19rem]" src="{{ asset('storage/banniere.webp') }}" alt="Image de salut Judo">
+        <div class="mt-5 flex justify-center">
+            <img class="md:w-[52rem] md:h-[22rem] w-[18rem] h-[7rem]" src="{{ asset('storage/banniere.webp') }}" alt="Image de salut Judo">
         </div>
         @endif
         <main class="dark:bg-gray-900">
